@@ -1,0 +1,82 @@
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Outbound Store {STORE}, {COUNTRY}
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#-------------------------------------------------------------------------------
+# Queue: SCX_STO_{STORE}_RELEASE_ORDER_CONSUMER_V1_Q for {COUNTRY}
+# Purpose: Release Order ISOM events to SCX for STO {STORE}
+#-------------------------------------------------------------------------------
+- name: "SCX_STO_{STORE}_RELEASE_ORDER_CONSUMER_V1_DMQ"
+  accessType: "non-exclusive"
+  maxMsgSpoolUsage: 5000
+  owner: "scx-sa-gke-prod"
+  permission: "no-access"
+  maxRedeliveryCount: 10
+  respectTtlEnabled: true
+  maxTtl: 864000
+  subscriptions: []
+- name: "SCX_STO_{STORE}_RELEASE_ORDER_CONSUMER_V1_Q"
+  accessType: "non-exclusive"
+  maxMsgSpoolUsage: 5000
+  owner: "scx-sa-gke-prod"
+  permission: "no-access"
+  deadMsgQueue: "SCX_STO_{STORE}_RELEASE_ORDER_CONSUMER_V1_DMQ"
+  maxRedeliveryCount: 10
+  subscriptions:
+  #OM-pickOrder ingka.isom.sys/pickOrder/full/{Action}/v1/{Compartment}/ISOM/{Country}/{BUType}/{BUCode}/{Environment}
+    - "ingka.isom.sys/pickOrder/full/create/v1/*/ISOM/*/STO/{STORE}/>"
+    - "ingka.isom.sys/pickOrder/full/cancel/v1/*/ISOM/*/STO/{STORE}/>"
+    - "ingka.isom.sys/pickOrder/full/modify/v1/*/ISOM/*/STO/{STORE}/>"
+    - "ingka.isom.sys/pickOrder/full/create/v1/*/OSOT/*/STO/{STORE}/>"
+    - "ingka.isom.sys/pickOrder/full/cancel/v1/*/OSOT/*/STO/{STORE}/>"
+    - "ingka.isom.sys/pickOrder/full/modify/v1/*/OSOT/*/STO/{STORE}/>"
+
+#-------------------------------------------------------------------------------
+# Queue: SCX_STO_{STORE}_FOE_PICK_ORDER_CONSUMER_V1_Q for store {STORE}
+# Purpose: Pick Order FOE events to SCX for STO {STORE}
+#-------------------------------------------------------------------------------
+- name: "SCX_STO_{STORE}_FOE_PICK_ORDER_CONSUMER_V1_DMQ"
+  accessType: "non-exclusive"
+  maxMsgSpoolUsage: 5000
+  owner: "scx-sa-gke-prod"
+  permission: "no-access"
+  maxRedeliveryCount: 10
+  respectTtlEnabled: true
+  maxTtl: 864000
+  subscriptions: []
+- name: "SCX_STO_{STORE}_FOE_PICK_ORDER_CONSUMER_V1_Q"
+  accessType: "non-exclusive"
+  maxMsgSpoolUsage: 5000
+  owner: "scx-sa-gke-prod"
+  permission: "no-access"
+  deadMsgQueue: "SCX_STO_{STORE}_FOE_PICK_ORDER_CONSUMER_V1_DMQ"
+  maxRedeliveryCount: 10
+  subscriptions:
+  #FOE-pickOrder ingka.foe.sys/pickOrder/full/CREATE/3.0/{compartment}/ORDEXE/{country}/{buType}/{buCode}
+    - "ingka.foe.sys/pickOrder/full/CREATE/3.0/*/ORDEXE/*/STO/{STORE}"
+    - "ingka.foe.sys/pickOrder/full/CANCEL/1.0/*/ORDEXE/*/STO/{STORE}"
+    - "ingka.foe.sys/pickOrder/full/CREATE/3.0/*/OSOT/*/STO/{STORE}"
+    - "ingka.foe.sys/pickOrder/full/CANCEL/1.0/*/OSOT/*/STO/{STORE}"
+  
+#-------------------------------------------------------------------------------
+# Purpose: Pickup Point Locker events for store {STORE}
+#-------------------------------------------------------------------------------
+- name: "SCX_STO_{STORE}_PICK_UP_POINT_LOCKERS_CONSUMER_V1_DMQ"
+  accessType: "non-exclusive"
+  maxMsgSpoolUsage: 5000
+  owner: "scx-sa-gke-prod"
+  permission: "no-access"
+  respectTtlEnabled: true
+  maxTtl: 864000
+  subscriptions: []
+- name: "SCX_STO_{STORE}_PICK_UP_POINT_LOCKERS_CONSUMER_V1_Q"
+  accessType: "non-exclusive"
+  maxMsgSpoolUsage: 5000
+  owner: "scx-sa-gke-prod"
+  permission: "no-access"
+  deadMsgQueue: "SCX_STO_{STORE}_PICK_UP_POINT_LOCKERS_CONSUMER_V1_DMQ"
+  maxRedeliveryCount: 3
+  subscriptions:
+    #Topic - ingka.pupmgr.sys/deliveryserviceWorkOrder/clickAndCollect/created/V1/GL/PUPMGR/{countryCode}/{stationName}/{event}
+    - "ingka.pupmgr.sys/deliveryserviceWorkOrder/clickAndCollect/created/V1/GL/PUPMGR/*/STO.{STORE}/PICKED_UP_BY_CUSTOMER"
+    - "ingka.pudoem.sys/deliveryserviceWorkOrder/clickAndCollect/created/V1/GL/PUDOEM/*/STO.{STORE}/PICKED_UP_BY_CUSTOMER"

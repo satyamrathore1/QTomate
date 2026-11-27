@@ -1,0 +1,6 @@
+- name: "SCX_STO_{STORE}_SALES_STOP_UPDATED_V1_Q"
+  publishers:
+    - "ERIX"
+- name: "SCX_STO_{STORE}_ITEM_RANGE_UPDATED_V1_Q"
+  publishers:
+    - "ERIX"

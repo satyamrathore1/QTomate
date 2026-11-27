@@ -1,0 +1,7 @@
+# TARGET_QUEUE: "FCCS_SGF_TBU_StoreStructureV1"
+- "ingka.sgf.sys/businessUnit/baseloadStoreWHMTopology/created/V1/*/SAG/*/STO/{STORE}"
+- "ingka.sgf.sys/businessUnit/StoreWHMTopologyBay/*/V1/*/SAG/*/STO/{STORE}"
+- "ingka.sgf.sys/businessUnit/StoreWHMTopologyBuilding/*/V1/*/SAG/*/STO/{STORE}"
+- "ingka.sgf.sys/businessUnit/StoreWHMTopologyCompartment/*/V1/*/SAG/*/STO/{STORE}"
+- "ingka.sgf.sys/businessUnit/StoreWHMTopologyLocation/changed/V1/*/SAG/*/STO/{STORE}"
+- "ingka.sgf.sys/businessUnit/StoreWHMTopologyRack/*/V1/*/SAG/*/STO/{STORE}" 

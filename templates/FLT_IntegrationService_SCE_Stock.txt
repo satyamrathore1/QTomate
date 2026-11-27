@@ -1,0 +1,4 @@
+# TARGET_QUEUE: "FLT_IntegrationService_SCE_Stock"
+#
+- "ingka.im.ado/stockdistribution/snapshot/full/V1/GL/SCX/ALL/STO/{STORE}"
+- "ingka.im.ado/stockdistribution/snapshot/update/V1/GL/SCX/ALL/STO/{STORE}"

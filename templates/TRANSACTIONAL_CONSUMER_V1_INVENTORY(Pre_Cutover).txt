@@ -1,0 +1,5 @@
+# TARGET_QUEUE: "SCX_STO_{STORE}_TRANSACTIONAL_CONSUMER_V1_Q"
+# Cut over topic
+- "ingka.ffl.ado/cutover/inventory/update/V1/ANY/FCCS/SCX/STO/{STORE}"
+- "ingka.ffl.ado/cutover/inventory/last-count-date/V1/ANY/FCCS/SCX/STO/{STORE}"
+

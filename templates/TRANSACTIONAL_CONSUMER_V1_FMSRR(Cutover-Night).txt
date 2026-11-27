@@ -1,0 +1,10 @@
+# TARGET_QUEUE: "SCX_STO_{STORE}_TRANSACTIONAL_CONSUMER_V1_Q"
+# FMS RR Receiving Approved events
+- "ingka.ffl.ado/reverseReceiving/process/approved/V3/{REGION}/FMSRR/*/*/STO/{STORE}/OVER_THE_COUNTER_RETURN"
+- "ingka.ffl.ado/reverseReceiving/process/approved/V3/{REGION}/FMSRR/*/*/STO/{STORE}/INTERNAL_RETURN"
+- "ingka.ffl.ado/reverseReceiving/process/approved/V3/{REGION}/FMSRR/*/*/STO/{STORE}/EXTERNAL_RETURN"
+- "ingka.ffl.ado/reverseReceiving/process/approved/V3/{REGION}/FMSRR/*/*/STO/{STORE}/TRANSPORT_DESK_ORDER"
+- "ingka.ffl.ado/reverseReceiving/process/approved/V3/{REGION}/FMSRR/*/*/STO/{STORE}/LEGACY_EXTERNAL_RETURN"
+- "ingka.ffl.ado/reverseReceiving/process/approved/V3/{REGION}/FMSRR/*/*/STO/{STORE}/UNKNOWN_RETURN"
+# FMS RR Status updated => cancellation
+- "ingka.ffl.ado/reverseReceivingUnit/status/updated/V3/{REGION}/FMSRR/*/*/STO/{STORE}/*/CANCELLED"

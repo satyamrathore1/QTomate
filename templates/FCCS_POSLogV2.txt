@@ -1,0 +1,2 @@
+# TARGET_QUEUE: "FCCS_POSLogV2"
+- "ingka.ipos.sys/poslog/Transactions/finalized/v1/GL/IPOS/normal/all/RetailTransaction/{COUNTRY}/{STORE}"

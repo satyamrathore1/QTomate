@@ -1,0 +1,23 @@
+- name: "SCX_STO_{STORE}_TRANSACTIONAL_CONSUMER_V1_DMQ"
+  accessType: "non-exclusive"
+  maxMsgSpoolUsage: 5000
+  owner: "scx-sa-gke-prod"
+  permission: "no-access"
+  maxRedeliveryCount: 10
+  respectTtlEnabled: true
+  maxTtl: 864000
+  subscriptions: []
+- name: "SCX_STO_{STORE}_TRANSACTIONAL_CONSUMER_V1_Q"
+  accessType: "non-exclusive"
+  maxMsgSpoolUsage: 5000
+  owner: "scx-sa-gke-prod"
+  permission: "no-access"
+  deadMsgQueue: "SCX_STO_{STORE}_TRANSACTIONAL_CONSUMER_V1_DMQ"
+  maxRedeliveryCount: 10
+  subscriptions:
+  # Topology cutover topics
+    - "ingka.ffl.ado/cutover/topology/replaceAll/V1/ANY/FCCS/SCX/STO/{STORE}"
+    - "ingka.ffl.ado/cutover/topology/updated/V1/ANY/FCCS/SCX/STO/{STORE}"
+    - "ingka.ffl.ado/cutover/topology/deleted/V1/ANY/FCCS/SCX/STO/{STORE}"
+    - "ingka.ffl.ado/cutover/compartments/replaceAll/V1/ANY/FCCS/SCX/STO/{STORE}"
+

@@ -1,0 +1,5 @@
+# TARGET_QUEUE: "FLT_IntegrationService_Store_Structure_Deleted"
+#
+- "ingka.org/salesLocationStructure/division/deleted/V1/{REGION}/SLM/{STORE}/>"
+- "ingka.org/salesLocationStructure/specialityShop/deleted/V1/{REGION}/SLM/{STORE}/>"
+- "ingka.org/salesLocationStructure/rangeGroup/deleted/V1/{REGION}/SLM/{STORE}/>"

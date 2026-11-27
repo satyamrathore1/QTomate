@@ -1,0 +1,2 @@
+# TARGET_QUEUE: "FLT_SDS_SafetyStockWeek"
+- "ingka.org/safetyStock/week/changed/V1/ANY/DPS/STO/{STORE}/ART/*"

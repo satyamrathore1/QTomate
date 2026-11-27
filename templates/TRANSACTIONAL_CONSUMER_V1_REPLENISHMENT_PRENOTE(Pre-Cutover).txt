@@ -1,0 +1,7 @@
+# TARGET_QUEUE: "SCX_STO_{STORE}_TRANSACTIONAL_CONSUMER_V1_Q"
+# Replenishment parameters topic
+- "ingka.sgf.sys/businessUnit/replenishmentParameters/calculated/V1/{REGION}/FLT/{COUNTRY}/STO/{STORE}"
+- "ingka.sgf.sys/businessUnit/replenishmentParameters/removed/V1/{REGION}/FLT/{COUNTRY}/STO/{STORE}"
+- "ingka.sgf.sys/businessUnit/replenishmentParameters/snapshot/V1/{REGION}/FLT/{COUNTRY}/STO/{STORE}"
+# Prenote Compiled Replenishment Need topic
+- "ingka.sgf.sys/businessUnit/preparationNote/compiledReplenishmentNeed/V1/{REGION}/FLT/{COUNTRY}/STO/{STORE}"

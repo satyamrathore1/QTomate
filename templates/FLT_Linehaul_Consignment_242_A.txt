@@ -1,0 +1,3 @@
+# TARGET_QUEUE: "FLT_Linehaul_Consignment"
+- "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/242/7/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+- "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/242/A/*/*/*/*/*/*/STO/{STORE}/*/*/*"

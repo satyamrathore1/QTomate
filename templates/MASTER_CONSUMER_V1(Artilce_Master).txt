@@ -1,0 +1,30 @@
+#-------------------------------------------------------------------------------
+# Queue: SCX_STO_{STORE}_MASTER_CONSUMER_V1_Q for {COUNTRY}
+# Purpose: Only Master Data to SCX for STO {STORE}
+# Description: NA
+# Created by: HCL Team
+#-------------------------------------------------------------------------------
+- name: "SCX_STO_{STORE}_MASTER_CONSUMER_V1_DMQ"
+  accessType: "non-exclusive"
+  maxMsgSpoolUsage: 5000
+  owner: "scx-sa-gke-prod"
+  permission: "no-access"
+  maxRedeliveryCount: 10
+  respectTtlEnabled: true
+  maxTtl: 864000
+  subscriptions: []
+- name: "SCX_STO_{STORE}_MASTER_CONSUMER_V1_Q"
+  accessType: "non-exclusive"
+  maxMsgSpoolUsage: 5000
+  owner: "scx-sa-gke-prod"
+  permission: "no-access"
+  deadMsgQueue: "SCX_STO_{STORE}_MASTER_CONSUMER_V1_DMQ"
+  maxRedeliveryCount: 10
+  subscriptions:
+  # Item Measure Topic - ingka.ffl.ado/item/measure/sync/V1/<region>/FLI/<event_subscriber>/<country>/STO
+    - "ingka.ffl.ado/item/measure/sync/V1/GL/*/ALL/{COUNTRY}"
+    - "ingka.ffl.ado/item/measure/sync/V1/GL/*/SCX-STO-{STORE}/{COUNTRY}"
+
+  # Item Master Topic - ingka.ffl.ado/item/master/sync/V1/<region>/FLI/<event_subscriber>/<country>/STO
+    - "ingka.ffl.ado/item/master/sync/V1/GL/*/ALL/{COUNTRY}"
+    - "ingka.ffl.ado/item/master/sync/V1/GL/*/SCX-STO-{STORE}/{COUNTRY}"

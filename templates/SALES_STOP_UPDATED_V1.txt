@@ -1,0 +1,20 @@
+#-------------------------------------------------------------------------------
+- name: "SCX_STO_{STORE}_SALES_STOP_UPDATED_V1_DMQ"
+  accessType: "non-exclusive"
+  maxMsgSpoolUsage: 5000
+  owner: "scx-sa-gke-prod"
+  permission: "no-access"
+  maxRedeliveryCount: 10
+  respectTtlEnabled: true
+  maxTtl: 172800
+  subscriptions: []
+- name: "SCX_STO_{STORE}_SALES_STOP_UPDATED_V1_Q"
+  accessType: "non-exclusive"
+  maxMsgSpoolUsage: 5000
+  owner: "scx-sa-gke-prod"
+  permission: "no-access"
+  deadMsgQueue: "SCX_STO_{STORE}_SALES_STOP_UPDATED_V1_DMQ"
+  maxRedeliveryCount: 10
+  subscriptions:
+    - "ingka.erix.sys/RetailItemSalesStop/full/updated/V1-json/{REGION}/ERIX/*/BU-STO-{STORE}/*"    
+  #-------------------------------------------------------------------------------

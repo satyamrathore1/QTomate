@@ -1,0 +1,31 @@
+# REPLACE_SUBSCRIPTIONS_OF: "SCX_STO_{STORE}_TRANSACTIONAL_CONSUMER_V1_Q"
+# Topology cutover topics
+#- "ingka.ffl.ado/cutover/topology/replaceAll/V1/ANY/FCCS/SCX/STO/{STORE}"
+#- "ingka.ffl.ado/cutover/topology/updated/V1/ANY/FCCS/SCX/STO/{STORE}"
+#- "ingka.ffl.ado/cutover/topology/deleted/V1/ANY/FCCS/SCX/STO/{STORE}"
+#- "ingka.ffl.ado/cutover/compartments/replaceAll/V1/ANY/FCCS/SCX/STO/{STORE}"
+# Cut over topic
+#- "ingka.ffl.ado/cutover/inventory/update/V1/ANY/FCCS/SCX/STO/{STORE}"
+#- "ingka.ffl.ado/cutover/inventory/last-count-date/V1/ANY/FCCS/SCX/STO/{STORE}"
+# StockUpdate topic
+- "ingka.ffl.ado/stockKeepingUnit/stock/update/V1/GL/*/SCX/STO/{STORE}/>"
+- "ingka.ffl.ado/stockKeepingUnit/stock/update/V1/GL/*/SCX/STO/{STORE}"
+# Replenishment parameters topic
+- "ingka.sgf.sys/businessUnit/replenishmentParameters/calculated/V1/{REGION}/FLT/{COUNTRY}/STO/{STORE}"
+- "ingka.sgf.sys/businessUnit/replenishmentParameters/removed/V1/{REGION}/FLT/{COUNTRY}/STO/{STORE}"
+- "ingka.sgf.sys/businessUnit/replenishmentParameters/snapshot/V1/{REGION}/FLT/{COUNTRY}/STO/{STORE}"
+# Prenote Compiled Replenishment Need topic
+- "ingka.sgf.sys/businessUnit/preparationNote/compiledReplenishmentNeed/V1/{REGION}/FLT/{COUNTRY}/STO/{STORE}"
+# FMS RR Receiving Approved events
+- "ingka.ffl.ado/reverseReceiving/process/approved/V3/{REGION}/FMSRR/*/*/STO/{STORE}/OVER_THE_COUNTER_RETURN"
+- "ingka.ffl.ado/reverseReceiving/process/approved/V3/{REGION}/FMSRR/*/*/STO/{STORE}/INTERNAL_RETURN"
+- "ingka.ffl.ado/reverseReceiving/process/approved/V3/{REGION}/FMSRR/*/*/STO/{STORE}/EXTERNAL_RETURN"
+- "ingka.ffl.ado/reverseReceiving/process/approved/V3/{REGION}/FMSRR/*/*/STO/{STORE}/TRANSPORT_DESK_ORDER"
+- "ingka.ffl.ado/reverseReceiving/process/approved/V3/{REGION}/FMSRR/*/*/STO/{STORE}/LEGACY_EXTERNAL_RETURN"
+- "ingka.ffl.ado/reverseReceiving/process/approved/V3/{REGION}/FMSRR/*/*/STO/{STORE}/UNKNOWN_RETURN"
+# FMS RR Status updated => cancellation
+- "ingka.ffl.ado/reverseReceivingUnit/status/updated/V3/{REGION}/FMSRR/*/*/STO/{STORE}/*/CANCELLED"
+# iRecover Confirmation Events - ingka.ffl.ado/recoveryItem/quantity/confirmed/V2/{eventRegion}/IRECOV/{countryCode}/{businessUnitType}/{businessUnitCode}/{movementType}
+- "ingka.ffl.ado/recoveryItem/quantity/confirmed/V2/{REGION}/IRECOV/{COUNTRY}/STO/{STORE}/*"
+# iRecover Back to Stock Events - ingka.ffl.ado/recoveryItem/quantity/updated/V2/{eventRegion}/IRECOV/{countryCode}/{businessUnitType}/{businessUnitCode}/{movementType}
+- "ingka.ffl.ado/recoveryItem/quantity/updated/V2/{REGION}/IRECOV/{COUNTRY}/STO/{STORE}/BACK_TO_STOCK"

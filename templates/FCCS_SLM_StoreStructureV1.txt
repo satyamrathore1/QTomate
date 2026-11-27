@@ -1,0 +1,4 @@
+# TARGET_QUEUE: "FCCS_SLM_StoreStructureV1"
+- "ingka.org/salesLocationStructure/specialityShop/replacedAll/V1/{REGION}/SLM/{STORE}"
+- "ingka.org/salesLocationStructure/rangeGroup/replacedAll/V1/{REGION}/SLM/{STORE}"
+- "ingka.org/salesLocationStructure/salesLocation/replacedAll/V1/{REGION}/SLM/{STORE}"

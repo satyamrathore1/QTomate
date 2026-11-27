@@ -1,0 +1,77 @@
+  #-------------------------------------------------------------------------------
+  # Queue: SCX_STO_{STORE}_DSMLH_CONSIGNMENT_UPDATES for getting DSMLH's consignment updates
+  # Purpose: Getting consignment updates for DSMLH for STO.{STORE}
+  # Description: -
+  # Created by: HCL Team
+  #-------------------------------------------------------------------------------
+- name: "SCX_STO_{STORE}_DSMLH_CONSIGNMENT_UPDATES"
+  accessType: "non-exclusive"
+  maxMsgSpoolUsage: 5000
+  owner: "scx-sa-gke-prod"
+  permission: "no-access"
+  respectTtlEnabled: true
+  deadMsgQueue: "SCX_STO_{STORE}_DSMLH_CONSIGNMENT_UPDATES_DMQ"
+  subscriptions:
+    # DSM LH Topic format: ingka.dsm.ado/consignment/full/event/V2/<organisation>/DSMLH/<event_subscriber>/<event_code>/<event_subcode>/<consignor_region>/<consignor_countryCode>/<consignor_butype>/<consignor_bucode>/<consignee_region>/<consignee_countryCode>/<consignee_butype>/<consignee_bucode>/<prevconsignee_butype>/<prevconsignee_bucode>/<source_of_information>
+    # NA is also used to identify no subcode is present in the event
+    # Event 15
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/15/NA/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+
+    # Event 27
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/27/NA/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+
+    # Event 48-1
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/48/1/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+
+    # Event 68-9
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/68/9/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+
+    # Event 72
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/72/NA/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+
+    # Event 75
+    # New consignee is a store
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/75/NA/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+    # Previous consignee was a store
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/75/NA/*/*/*/*/*/*/*/*/STO/{STORE}/*"
+
+    # Event 242-7 242-A
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/242/7/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/242/A/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+
+    # Event 242-8 242-B
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/242/8/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/242/B/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+
+    # Event 242-9 242-C
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/242/9/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/242/C/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+
+    # Event 242-10 242-D
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/242/10/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/242/D/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+
+    # Event 242-11
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/242/11/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+
+    # Event 242-12 242-E
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/242/12/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/242/E/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+
+    # Event 322-1
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/322/1/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+
+    # Event 324
+    - "ingka.dsm.ado/consignment/full/event/V2/*/DSMLH/*/324/NA/*/*/*/*/*/*/STO/{STORE}/*/*/*"
+
+    # FIST Baseload topic for replay
+    - "ingka.ffl.sys/consignment/request/baseload/V1/GL/FIST/SCE/STO/{STORE}"
+
+- name: "SCX_STO_{STORE}_DSMLH_CONSIGNMENT_UPDATES_DMQ"
+  accessType: "non-exclusive"
+  maxMsgSpoolUsage: 5000
+  owner: "scx-sa-gke-prod"
+  permission: "no-access"
+  maxRedeliveryCount: 10
+  subscriptions: []
+

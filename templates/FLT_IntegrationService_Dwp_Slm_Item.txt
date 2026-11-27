@@ -1,0 +1,2 @@
+# TARGET_QUEUE: "FLT_IntegrationService_Dwp_Slm_Item"
+- "tmp.ingka.ffp.org/temporaryDwpDataForSds/daily/changed/V1/SDS/SLM/STO/{STORE}/DWP/*"

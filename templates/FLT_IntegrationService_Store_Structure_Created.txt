@@ -1,0 +1,5 @@
+# TARGET_QUEUE: "FLT_IntegrationService_Store_Structure_Created"
+#
+- "ingka.org/salesLocationStructure/division/created/V1/{REGION}/SLM/{STORE}/>"
+- "ingka.org/salesLocationStructure/specialityShop/created/V1/{REGION}/SLM/{STORE}/>"
+- "ingka.org/salesLocationStructure/rangeGroup/created/V1/{REGION}/SLM/{STORE}/>"

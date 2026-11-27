@@ -1,0 +1,25 @@
+  #-------------------------------------------------------------------------------
+  # Queue: SCX_STO_{STORE}_ITEM_RANGE_UPDATED_V1_Q for all region
+  # Purpose: Get the item range data for items.
+  # Description: NA
+  # Created by: HCL Team.
+  #-------------------------------------------------------------------------------
+- name: "SCX_STO_{STORE}_ITEM_RANGE_UPDATED_V1_DMQ"
+  accessType: "non-exclusive"
+  maxMsgSpoolUsage: 5000
+  owner: "scx-sa-gke-prod"
+  permission: "no-access"
+  maxRedeliveryCount: 10
+  respectTtlEnabled: true
+  maxTtl: 172800
+  subscriptions: []
+- name: "SCX_STO_{STORE}_ITEM_RANGE_UPDATED_V1_Q"
+  accessType: "non-exclusive"
+  maxMsgSpoolUsage: 5000
+  owner: "scx-sa-gke-prod"
+  permission: "no-access"
+  deadMsgQueue: "SCX_STO_{STORE}_ITEM_RANGE_UPDATED_V1_DMQ"
+  maxRedeliveryCount: 10
+  subscriptions:
+    - "ingka.erix.sys/ScxItemRange/full/updated/V1-json/*/ERIX/*/BU-STO-{STORE}/*"                   
+  #-------------------------------------------------------------------------------

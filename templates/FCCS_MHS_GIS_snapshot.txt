@@ -1,0 +1,2 @@
+# TARGET_QUEUE: "FCCS_MHS_GIS_snapshot"
+- "ingka.im.ado/inventory/snapshot/sync/V1/*/SAG/GIS/STO/{STORE}" 

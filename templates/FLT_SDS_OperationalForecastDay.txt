@@ -1,0 +1,2 @@
+# TARGET_QUEUE: "FLT_SDS_OperationalForecastDay"
+- "ingka.org/operationalForecast/day/changed/V1/ANY/DPS/STO/{STORE}/ART/*"

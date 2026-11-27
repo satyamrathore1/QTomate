@@ -1,0 +1,25 @@
+#-------------------------------------------------------------------------------
+# Queue: SCX_STO_{STORE}_OLM_ORDERLINES_PREDICTED for store {STORE}
+# Purpose: OLM
+#-------------------------------------------------------------------------------
+
+- name: "SCX_STO_{STORE}_OLM_ORDERLINES_PREDICTED"
+  accessType: "non-exclusive"
+  maxMsgSpoolUsage: 5000
+  owner: "scx-sa-gke-prod"
+  permission: "no-access"
+  maxRedeliveryCount: 2
+  deadMsgQueue: "SCX_STO_{STORE}_OLM_ORDERLINES_PREDICTED_DMQ"
+  respectTtlEnabled: true
+  maxTtl: 2592000
+  subscriptions:
+    - "ingka.osot.sys/oversellPredictions/orderLines/predicted/V1/*/OSOT/*/STO/{STORE}"
+
+- name: "SCX_STO_{STORE}_OLM_ORDERLINES_PREDICTED_DMQ"
+  accessType: "non-exclusive"
+  maxMsgSpoolUsage: 5000
+  owner: "scx-sa-gke-prod"
+  permission: "no-access"
+  respectTtlEnabled: true
+  maxTtl: 2592000
+  subscriptions: [ ]
